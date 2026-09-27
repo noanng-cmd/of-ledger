@@ -1,0 +1,12 @@
+{
+  "name": "of-ledger-zmarket-collector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "discord.js": "^14.22.1"
+  }
+}
