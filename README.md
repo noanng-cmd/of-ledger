@@ -23,6 +23,10 @@ Enquanto o Discord e o banco real não estão conectados, o Market usa dados dem
 
 O OF Ledger trata os valores como **preços observados/anunciados**. Um anúncio que desaparece não é automaticamente chamado de venda confirmada.
 
+## Nomenclatura
+
+No OF Ledger usamos **média / médias** para os indicadores de preço. Quando for necessário reduzir o impacto de anúncios muito fora da curva, o produto poderá apresentar uma **média ajustada**, sempre identificada dessa forma.
+
 ## Imagens dos itens
 
 O collector lê `thumbnail.url`, `image.url` e anexos de imagem do embed/mensagem do zMarket. A URL é persistida junto do listing para que o site consiga mostrar o próprio item anunciado.

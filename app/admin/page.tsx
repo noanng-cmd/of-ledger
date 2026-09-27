@@ -41,7 +41,7 @@ export default function AdminPage() {
             <li><b>1</b><span>Admin zGaming libera o bot read-only no #zmarket.</span></li>
             <li><b>2</b><span>Ligamos o collector e validamos 10–20 mensagens reais.</span></li>
             <li><b>3</b><span>Conectamos PostgreSQL e iniciamos backfill do histórico.</span></li>
-            <li><b>4</b><span>Market Live, medianas, tendências e alertas passam para dados reais.</span></li>
+            <li><b>4</b><span>Market Live, médias, tendências e alertas passam para dados reais.</span></li>
           </ol>
         </article>
       </section>

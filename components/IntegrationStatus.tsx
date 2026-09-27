@@ -43,7 +43,7 @@ export default function IntegrationStatus() {
         <span className={dbOk ? "statusLight statusReady" : "statusLight"} />
         <small>POSTGRESQL</small>
         <strong>{dbOk ? "ONLINE" : "PENDENTE"}</strong>
-        <p>Será responsável pelo histórico, medianas, alertas e tendências.</p>
+        <p>Será responsável pelo histórico, médias, alertas e tendências.</p>
       </article>
       <article>
         <span className="statusLight" />

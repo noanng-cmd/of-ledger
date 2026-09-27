@@ -44,13 +44,15 @@ CREATE INDEX IF NOT EXISTS idx_market_listings_time
 CREATE INDEX IF NOT EXISTS idx_market_listings_price
   ON market_listings (item_name, price_zcoin);
 
-CREATE OR REPLACE VIEW market_item_7d AS
+DROP VIEW IF EXISTS market_item_7d;
+
+CREATE VIEW market_item_7d AS
 SELECT
   item_name,
   COUNT(*) AS listing_count,
   MIN(price_zcoin) AS min_price,
   MAX(price_zcoin) AS max_price,
-  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price_zcoin) AS median_price,
+  AVG(price_zcoin) AS average_price,
   PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY price_zcoin) AS p25_price,
   PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY price_zcoin) AS p75_price,
   MAX(listed_at) AS last_seen_at

@@ -53,7 +53,7 @@ function ItemContent() {
         </div>
 
         <div className="itemMetrics">
-          <article><small>REFERÊNCIA 7D</small><strong>{baseline}</strong><span>zCoin</span></article>
+          <article><small>MÉDIA 7D</small><strong>{baseline}</strong><span>zCoin</span></article>
           <article><small>MÍNIMO OBSERVADO</small><strong>{min}</strong><span>zCoin</span></article>
           <article><small>MÁXIMO OBSERVADO</small><strong>{max}</strong><span>zCoin</span></article>
           <article><small>CONFIANÇA</small><strong>Demo</strong><span>aguardando base real</span></article>

@@ -118,7 +118,7 @@ export default function Home() {
             <div className="dealRow dealHead">
               <span>ITEM</span>
               <span>PREÇO</span>
-              <span>REF. 7D</span>
+              <span>MÉDIA 7D</span>
               <span>DESCONTO</span>
               <span>DEAL SCORE</span>
             </div>
@@ -175,7 +175,7 @@ export default function Home() {
           <span className="kicker">PREÇO JUSTO</span>
           <h2>Menos ruído. Mais contexto.</h2>
           <p>
-            Medianas, liquidez, histórico e confiança para reduzir distorções causadas por anúncios fora da curva.
+            Médias, liquidez, histórico e confiança para reduzir distorções causadas por anúncios fora da curva.
           </p>
           <div className="fairPrice">
             <small>PREÇO DE REFERÊNCIA OBSERVADO</small>
