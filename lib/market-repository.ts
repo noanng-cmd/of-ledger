@@ -37,8 +37,8 @@ export async function saveMarketListing(
     await client.query(
       `INSERT INTO market_listings
         (discord_message_id, guild_id, channel_id, item_raw, display_name, item_name,
-         enchant, item_level, sealed, price_zcoin, listed_at, status, raw_payload, parser_version)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,'observed',$12::jsonb,$13)
+         enchant, item_level, sealed, price_zcoin, listed_at, status, image_url, raw_payload, parser_version)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,'observed',$12,$13::jsonb,$14)
        ON CONFLICT (discord_message_id) DO UPDATE SET
          item_raw = EXCLUDED.item_raw,
          display_name = EXCLUDED.display_name,
@@ -48,6 +48,7 @@ export async function saveMarketListing(
          sealed = EXCLUDED.sealed,
          price_zcoin = EXCLUDED.price_zcoin,
          listed_at = EXCLUDED.listed_at,
+         image_url = COALESCE(EXCLUDED.image_url, market_listings.image_url),
          raw_payload = EXCLUDED.raw_payload,
          parser_version = EXCLUDED.parser_version,
          last_seen_at = NOW()`,
@@ -63,6 +64,7 @@ export async function saveMarketListing(
         listing.sealed,
         listing.priceZcoin,
         listing.listedAt,
+        listing.imageUrl,
         JSON.stringify(event.payload),
         PARSER_VERSION
       ]
@@ -119,7 +121,7 @@ export async function getLatestMarketListings(limit = 30) {
   const safeLimit = Math.min(Math.max(limit, 1), 100);
   const result = await pool.query(
     `SELECT discord_message_id, display_name, item_name, enchant, item_level, sealed,
-            price_zcoin::float8 AS price_zcoin, listed_at, status
+            price_zcoin::float8 AS price_zcoin, listed_at, status, image_url
      FROM market_listings
      ORDER BY listed_at DESC
      LIMIT $1`,

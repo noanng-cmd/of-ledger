@@ -33,7 +33,14 @@ function serializeMessage(message) {
       title: embed.title,
       description: embed.description,
       fields: embed.fields?.map((field) => ({ name: field.name, value: field.value })) ?? [],
-      footer: embed.footer ? { text: embed.footer.text } : null
+      footer: embed.footer ? { text: embed.footer.text } : null,
+      thumbnail: embed.thumbnail?.url ? { url: embed.thumbnail.url } : null,
+      image: embed.image?.url ? { url: embed.image.url } : null
+    })),
+    attachments: [...(message.attachments?.values?.() ?? [])].map((attachment) => ({
+      url: attachment.url,
+      name: attachment.name,
+      contentType: attachment.contentType
     }))
   };
 }
@@ -95,7 +102,8 @@ client.on("messageDelete", async (message) => {
           id: message.id,
           createdAt: message.createdAt?.toISOString?.() ?? new Date().toISOString(),
           content: "",
-          embeds: []
+          embeds: [],
+          attachments: []
         }
       })
     });

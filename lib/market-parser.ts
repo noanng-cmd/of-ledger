@@ -1,10 +1,12 @@
-export const PARSER_VERSION = "1.0.0";
+export const PARSER_VERSION = "1.1.0";
 
 export type DiscordEmbedPayload = {
   title?: string | null;
   description?: string | null;
   fields?: Array<{ name?: string | null; value?: string | null }>;
   footer?: { text?: string | null } | null;
+  thumbnail?: { url?: string | null } | null;
+  image?: { url?: string | null } | null;
 };
 
 export type DiscordMessagePayload = {
@@ -12,6 +14,11 @@ export type DiscordMessagePayload = {
   createdAt: string;
   content?: string | null;
   embeds?: DiscordEmbedPayload[];
+  attachments?: Array<{
+    url?: string | null;
+    name?: string | null;
+    contentType?: string | null;
+  }>;
 };
 
 export type ParsedMarketListing = {
@@ -24,6 +31,7 @@ export type ParsedMarketListing = {
   sealed: boolean;
   priceZcoin: number;
   listedAt: string;
+  imageUrl: string | null;
 };
 
 function flattenMessage(message: DiscordMessagePayload) {
@@ -41,6 +49,21 @@ function flattenMessage(message: DiscordMessagePayload) {
   }
 
   return parts.join("\n");
+}
+
+function findImageUrl(message: DiscordMessagePayload) {
+  for (const embed of message.embeds ?? []) {
+    if (embed.thumbnail?.url) return embed.thumbnail.url;
+    if (embed.image?.url) return embed.image.url;
+  }
+
+  for (const attachment of message.attachments ?? []) {
+    if (attachment.url && (attachment.contentType?.startsWith("image/") || !attachment.contentType)) {
+      return attachment.url;
+    }
+  }
+
+  return null;
 }
 
 function parsePrice(raw: string) {
@@ -119,6 +142,7 @@ export function parseZMarketMessage(message: DiscordMessagePayload): ParsedMarke
     itemRaw,
     ...normalized,
     priceZcoin,
-    listedAt: new Date(message.createdAt).toISOString()
+    listedAt: new Date(message.createdAt).toISOString(),
+    imageUrl: findImageUrl(message)
   };
 }

@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
+import MarketTicker from "../components/MarketTicker";
 
 type Deal = {
   item: string;
@@ -25,13 +27,6 @@ const movements = [
   { item: "Ice Gaiters +8", change: -8.4 }
 ];
 
-const ticker = [
-  "Vesper Breastplate +8 • 980 zCoin • -21,0% vs 7d",
-  "Baium Doll Lv.2 • 410 zCoin • -16,7% vs 7d",
-  "Dragon Belt • 1.190 zCoin • -8,1% vs 7d",
-  "Queen Ant Ring • 625 zCoin • novo anúncio"
-];
-
 const characters = [
   { name: "Titan competitivo", gs: "2.421", spirits: "6★", patterns: "Upadas", price: "4.800 zCoin" },
   { name: "Dreadnought competitivo", gs: "2.188", spirits: "5★", patterns: "Upadas", price: "3.950 zCoin" }
@@ -49,14 +44,14 @@ export default function Home() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="OF Ledger">
+        <Link className="brand" href="/" aria-label="OF Ledger">
           <span className="brandOf">OF</span>
           <span className="brandZ">Z</span>
           <span className="brandText">LEDGER</span>
-        </a>
+        </Link>
 
         <nav>
-          <a href="#market">Market</a>
+          <Link href="/market">Market</Link>
           <a href="#barganhas">Barganhas</a>
           <a href="#tendencias">Tendências</a>
           <a href="#alertas">Alertas</a>
@@ -64,7 +59,7 @@ export default function Home() {
           <a href="#servicos">Serviços</a>
         </nav>
 
-        <button className="discordButton">Entrar com Discord</button>
+        <Link className="discordButtonLink" href="/admin">Status do projeto</Link>
       </header>
 
       <section className="hero" id="inicio">
@@ -76,7 +71,7 @@ export default function Home() {
           Dar transparência ao mercado do zGaming Emerald para que os jogadores saibam quanto os itens realmente valem.
         </p>
         <div className="heroActions">
-          <a className="primaryButton" href="#market">Explorar Market</a>
+          <Link className="primaryButton" href="/market">Abrir Market Live</Link>
           <a className="secondaryButton" href="#alertas">Criar alerta</a>
         </div>
       </section>
@@ -85,7 +80,7 @@ export default function Home() {
         <article>
           <span>OFERTAS MONITORADAS</span>
           <strong>14.832</strong>
-          <small>+428 hoje</small>
+          <small>dados simulados no protótipo</small>
         </article>
         <article>
           <span>BARGANHAS AGORA</span>
@@ -140,6 +135,10 @@ export default function Home() {
               );
             })}
           </div>
+
+          <Link className="panelCta" href="/market">
+            Ver o Market Live completo com item, imagem, preço e horário →
+          </Link>
         </article>
 
         <article className="panel" id="tendencias">
@@ -179,9 +178,9 @@ export default function Home() {
             Medianas, liquidez, histórico e confiança para reduzir distorções causadas por anúncios fora da curva.
           </p>
           <div className="fairPrice">
-            <small>FAIR MARKET PRICE</small>
+            <small>PREÇO DE REFERÊNCIA OBSERVADO</small>
             <strong>820 zCoin</strong>
-            <span>Confiança 94% • 127 anúncios</span>
+            <span>Confiança demonstrativa • 127 anúncios</span>
           </div>
         </article>
       </section>
@@ -229,19 +228,10 @@ export default function Home() {
           <strong>OF LEDGER</strong>
           <span>Projeto comunitário • zGaming Emerald</span>
         </div>
-        <a href="#apoie">Apoie o projeto</a>
+        <Link href="/admin">Status da integração</Link>
       </footer>
 
-      <div className="marketTicker" aria-label="Últimas entradas no Market">
-        <span className="tickerLabel"><i /> MARKET LIVE</span>
-        <div className="tickerViewport">
-          <div className="tickerTrack">
-            {[...ticker, ...ticker].map((item, index) => (
-              <span key={index}>{item}</span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <MarketTicker />
     </main>
   );
 }

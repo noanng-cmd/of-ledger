@@ -729,3 +729,590 @@ footer a {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* OF Ledger Market workspace */
+.discordButtonLink,
+.adminPill {
+  color: white;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #171719;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+.adminPill {
+  color: #ff9a83;
+  border-color: rgba(255,61,35,.25);
+  background: rgba(255,45,20,.06);
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.panelCta {
+  display: inline-block;
+  margin-top: 18px;
+  color: #ff8d7a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.marketWorkspace,
+.itemDetail,
+.adminWorkspace {
+  width: min(1260px, 92vw);
+  margin: 0 auto;
+  padding: 58px 0 100px;
+}
+
+.marketToolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+.marketToolbar h1,
+.adminWorkspace h1,
+.itemHeroCard h1 {
+  margin: 9px 0 8px;
+  font-size: clamp(38px, 5vw, 70px);
+  line-height: .95;
+  letter-spacing: -3px;
+}
+
+.marketToolbar p,
+.adminWorkspace > p,
+.itemHeroCard p {
+  max-width: 760px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.sourceBadge {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.025);
+  color: #bbb6b1;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  font-weight: 900;
+}
+
+.sourceBadge i,
+.statusLight {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #777;
+  box-shadow: 0 0 10px rgba(255,255,255,.12);
+}
+
+.sourceBadge i.sourceOnline,
+.statusLight.statusReady {
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(73,209,125,.7);
+}
+
+.marketFilters {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.018);
+}
+
+.marketFilters > input {
+  border: 1px solid rgba(255,255,255,.09);
+  background: #0b0b0c;
+  color: white;
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+}
+
+.marketFilters label,
+.marketFilters > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.marketTable {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(21,21,23,.92), rgba(10,10,11,.94));
+}
+
+.marketTableHead,
+.marketListingRow {
+  display: grid;
+  grid-template-columns: minmax(350px, 2.2fr) .8fr 1fr .65fr;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 18px;
+}
+
+.marketTableHead {
+  color: #706c68;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  background: rgba(0,0,0,.22);
+}
+
+.marketListingRow {
+  min-height: 88px;
+  border-top: 1px solid rgba(255,255,255,.055);
+  transition: background .18s ease;
+}
+
+.marketListingRow:hover {
+  background: rgba(255,42,22,.055);
+}
+
+.marketItemCell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.marketItemCell > span:last-child {
+  min-width: 0;
+}
+
+.marketItemCell strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.marketItemCell small,
+.marketPrice small,
+.demoDisclaimer {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.marketPrice strong {
+  display: block;
+  font-size: 22px;
+  color: #fff;
+}
+
+.marketPrice small {
+  color: var(--gold);
+  letter-spacing: .7px;
+}
+
+.marketTime {
+  color: #c0bbb5;
+  font-size: 12px;
+}
+
+.listingStatus {
+  justify-self: start;
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: #ff9a83;
+  background: rgba(255,45,20,.07);
+  border: 1px solid rgba(255,61,35,.18);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.itemVisual {
+  position: relative;
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 13px;
+  border: 1px solid rgba(255,113,75,.23);
+  background:
+    radial-gradient(circle at 30% 28%, rgba(255,115,55,.18), transparent 33%),
+    linear-gradient(145deg, #1a1514, #09090a);
+  box-shadow:
+    inset 0 0 22px rgba(255,42,22,.07),
+    0 8px 25px rgba(0,0,0,.26);
+}
+
+.itemVisualCompact {
+  width: 42px;
+  height: 42px;
+}
+
+.itemVisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemVisualRune {
+  position: relative;
+  z-index: 2;
+  font-weight: 1000;
+  letter-spacing: -1px;
+  color: #f4d7c7;
+  text-shadow: 0 0 14px rgba(255,57,26,.7);
+}
+
+.itemVisualGlow {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,42,22,.18);
+  filter: blur(12px);
+}
+
+.marketEmpty,
+.marketNote {
+  padding: 24px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.marketNote {
+  margin-top: 16px;
+  border-left: 2px solid var(--red);
+  background: linear-gradient(90deg, rgba(255,42,22,.07), transparent);
+  line-height: 1.6;
+}
+
+.marketNote strong {
+  color: #fff;
+}
+
+.itemHeroCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    linear-gradient(125deg, rgba(255,42,22,.08), transparent 40%),
+    rgba(255,255,255,.018);
+}
+
+.itemHeroCard > .itemVisual {
+  width: 110px;
+  height: 110px;
+  border-radius: 19px;
+}
+
+.itemHeroCard h1 {
+  font-size: clamp(30px, 4vw, 54px);
+}
+
+.itemCurrentPrice {
+  min-width: 150px;
+  text-align: right;
+}
+
+.itemCurrentPrice small,
+.itemCurrentPrice span {
+  display: block;
+  color: var(--muted);
+}
+
+.itemCurrentPrice strong {
+  display: block;
+  margin: 2px 0;
+  font-size: 46px;
+  color: var(--gold);
+}
+
+.itemMetrics {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.itemMetrics article {
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  background: rgba(255,255,255,.018);
+}
+
+.itemMetrics article:last-child {
+  border-right: 0;
+}
+
+.itemMetrics small,
+.itemMetrics span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.itemMetrics strong {
+  display: block;
+  margin: 5px 0;
+  font-size: 29px;
+}
+
+.itemDetailGrid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1.6fr .8fr;
+  gap: 18px;
+}
+
+.itemChartPanel {
+  min-height: 360px;
+}
+
+.miniChart {
+  height: 220px;
+  margin-top: 34px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  padding: 16px 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  background: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 100% 44px;
+}
+
+.miniChart > span {
+  position: relative;
+  flex: 1;
+  min-width: 8px;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(180deg, #ff6a35, #80190f);
+  box-shadow: 0 0 20px rgba(255,42,22,.08);
+}
+
+.miniChart i {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: normal;
+  font-size: 8px;
+  color: #857f7a;
+}
+
+.itemFacts {
+  margin-top: 22px;
+}
+
+.itemFacts > div {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-size: 12px;
+}
+
+.itemFacts span {
+  color: var(--muted);
+}
+
+.itemFacts strong {
+  text-align: right;
+}
+
+.integrationGrid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.integrationGrid article {
+  position: relative;
+  min-height: 185px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(24,24,26,.92), rgba(11,11,12,.93));
+}
+
+.integrationGrid .statusLight {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.integrationGrid small,
+.integrationGrid p {
+  color: var(--muted);
+}
+
+.integrationGrid small {
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+
+.integrationGrid strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 19px;
+}
+
+.integrationGrid p {
+  line-height: 1.55;
+  font-size: 11px;
+}
+
+.integrationWide {
+  grid-column: 1 / -1;
+  min-height: auto !important;
+}
+
+.adminRoadmap {
+  margin-top: 18px;
+}
+
+.adminRoadmap ol {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+}
+
+.adminRoadmap li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.adminRoadmap li b {
+  display: grid;
+  place-items: center;
+  flex: 0 0 29px;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: rgba(255,42,22,.1);
+  color: #ff8b76;
+}
+
+.pageLoading {
+  padding: 80px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .marketFilters {
+    grid-template-columns: 1fr;
+  }
+
+  .marketTableHead {
+    display: none;
+  }
+
+  .marketListingRow {
+    grid-template-columns: 1fr auto;
+  }
+
+  .marketListingRow > .marketTime,
+  .marketListingRow > .listingStatus {
+    grid-column: 1 / -1;
+  }
+
+  .itemHeroCard {
+    grid-template-columns: auto 1fr;
+  }
+
+  .itemCurrentPrice {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .itemMetrics,
+  .integrationGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .itemMetrics article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .itemDetailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .marketWorkspace,
+  .itemDetail,
+  .adminWorkspace {
+    width: min(94vw, 1260px);
+    padding-top: 34px;
+  }
+
+  .marketToolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .marketToolbar h1,
+  .adminWorkspace h1 {
+    letter-spacing: -2px;
+  }
+
+  .marketListingRow {
+    grid-template-columns: 1fr;
+  }
+
+  .marketPrice {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .marketListingRow > .marketTime,
+  .marketListingRow > .listingStatus {
+    grid-column: auto;
+  }
+
+  .itemHeroCard {
+    grid-template-columns: 1fr;
+  }
+
+  .itemHeroCard > .itemVisual {
+    width: 84px;
+    height: 84px;
+  }
+
+  .itemMetrics,
+  .integrationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .itemMetrics article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .itemMetrics article:last-child {
+    border-bottom: 0;
+  }
+}

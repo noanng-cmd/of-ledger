@@ -80,7 +80,8 @@ export async function POST(request: Request) {
       level: listing.level,
       sealed: listing.sealed,
       priceZcoin: listing.priceZcoin,
-      listedAt: listing.listedAt
+      listedAt: listing.listedAt,
+      imageUrl: listing.imageUrl
     }
   });
 }

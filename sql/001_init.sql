@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS market_listings (
   listed_at TIMESTAMPTZ NOT NULL,
   status TEXT NOT NULL DEFAULT 'observed'
     CHECK (status IN ('observed', 'inactive', 'expired', 'removed', 'sold_confirmed')),
+  image_url TEXT,
   inactive_at TIMESTAMPTZ,
   first_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   last_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
